@@ -1,7 +1,7 @@
 # IntentRecognizer
 A command line tool for intent recognition
 
-##Prerequisites<br>
+## Prerequisites<br>
 - C++ compiler
 - CMake
 - GTest
