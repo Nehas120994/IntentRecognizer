@@ -9,10 +9,13 @@ int main()
     std::cout << "Enter Input:" << std::endl;
     while (std::getline(std::cin, statement))
     {
-        if(!statement.empty()){
+        if (!statement.empty())
+        {
             IntentAnalyzer intentAnalyzer;
             std::cout << intentAnalyzer.processForIntent(statement) << std::endl;
-        }else{
+        }
+        else
+        {
             std::cout << "Please enter the input to analyze." << std::endl;
         }
     }

@@ -12,7 +12,7 @@ A command line tool for intent recognition
 mkdir build<br>
 cd build<br>
 cmake ..<br>
-make<br>
+make(call "make install" to have proper structuring of libraries and executables)<br>
 ctest<br>
 
 ## User Guide

@@ -37,3 +37,6 @@ target_link_libraries(Intent_test
 
 include(GoogleTest)
 gtest_discover_tests(Intent_test)
+
+install(TARGETS IntentAnalyzer DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/bin)
+install(TARGETS IntentAnalyzerImpl DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/lib)
