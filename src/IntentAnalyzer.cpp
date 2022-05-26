@@ -23,23 +23,21 @@ std::string IntentAnalyzer::getCleanedToken(std::string token)
 {
     std::for_each(token.begin(), token.end(), [](char &c)
                   { c = ::tolower(c); });
-    token.erase(std::remove_if(token.begin(), token.end(), [this](unsigned char c){return this->toBeRemoved(c);}), token.end());
+    token.erase(std::remove_if(token.begin(), token.end(), [this](unsigned char c)
+                               { return this->toBeRemoved(c); }),
+                token.end());
     return token;
 }
 
 bool IntentAnalyzer::toBeRemoved(char c)
 {
-    switch (c)
+    if ((c >= 'A' && c <= 'Z') ||
+        (c >= 'a' && c <= 'z') || 
+        (int(c) >= 48 && int(c) <= 57))
     {
-    case '(':
-    case ')':
-    case '-':
-    case '.':
-    case '?':
-        return true;
-    default:
         return false;
     }
+    return true;
 }
 
 void IntentAnalyzer::analyzeTokenForIntent(std::string &token, std::string &intent)
