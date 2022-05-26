@@ -13,23 +13,22 @@ std::string IntentAnalyzer::processForIntent(std::string userInput)
     std::string intent = "Intent: Get";
     while (std::getline(stream, token, ' '))
     {
-        std::string cleanedToken = getCleanedToken(token);
-        analyzeTokenForIntent(cleanedToken, intent);
+        cleanToken(token);
+        analyzeTokenForIntent(token, intent);
     }
     return intent;
 }
 
-std::string IntentAnalyzer::getCleanedToken(std::string token)
+void IntentAnalyzer::cleanToken(std::string &token)
 {
     std::for_each(token.begin(), token.end(), [](char &c)
                   { c = ::tolower(c); });
     token.erase(std::remove_if(token.begin(), token.end(), [this](unsigned char c)
                                { return this->toBeRemoved(c); }),
                 token.end());
-    return token;
 }
 
-bool IntentAnalyzer::toBeRemoved(char c)
+bool IntentAnalyzer::toBeRemoved(const char &c)
 {
     if ((c >= 'A' && c <= 'Z') ||
         (c >= 'a' && c <= 'z') || 
@@ -58,19 +57,19 @@ void IntentAnalyzer::analyzeTokenForIntent(std::string &token, std::string &inte
     return;
 }
 
-bool IntentAnalyzer::isStopWord(std::string &token)
+bool IntentAnalyzer::isStopWord(const std::string &token)
 {
     IntentCollection intentCollection;
     return std::find(intentCollection.STOPWORDS.begin(), intentCollection.STOPWORDS.end(), token) != intentCollection.STOPWORDS.end();
 }
 
-bool IntentAnalyzer::isInterest(std::string &token)
+bool IntentAnalyzer::isInterest(const std::string &token)
 {
     IntentCollection intentCollection;
     return std::find(intentCollection.INTEREST.begin(), intentCollection.INTEREST.end(), token) != intentCollection.INTEREST.end();
 }
 
-bool IntentAnalyzer::isCity(std::string &token)
+bool IntentAnalyzer::isCity(const std::string &token)
 {
     IntentCollection intentCollection;
     return std::find(intentCollection.CITY.begin(), intentCollection.CITY.end(), token) != intentCollection.CITY.end();

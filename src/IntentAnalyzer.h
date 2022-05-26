@@ -4,10 +4,11 @@ class IntentAnalyzer
 {
 public:
     std::string processForIntent(std::string);
+private:
     void analyzeTokenForIntent(std::string &token, std::string &intent);
-    bool isStopWord(std::string &token);
-    bool isInterest(std::string &token);
-    bool isCity(std::string &token);
-    std::string getCleanedToken(std::string token);
-    bool toBeRemoved(char c);
+    bool isStopWord(const std::string &token);
+    bool isInterest(const std::string &token);
+    bool isCity(const std::string &token);
+    void cleanToken(std::string &token);
+    bool toBeRemoved(const char &c);
 };
