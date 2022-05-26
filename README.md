@@ -1,6 +1,10 @@
 # IntentRecognizer
 A command line tool for intent recognition
 
+##Prerequisites<br>
+- C++ compiler
+- CMake
+- GTest
 
 ## Steps to build the application and run google test<br>
 1.Clone the repository.<br>
