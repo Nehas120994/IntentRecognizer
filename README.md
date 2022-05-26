@@ -2,7 +2,7 @@
 A command line tool for intent recognition
 
 # Steps to build the application and run google test<br>
-1.git clone https://github.com/Nehas120994/IntentRecognizer.git<br>
+1.Clone the repository.<br>
 2.Run the following commands from the checked out project directory:<br>
 mkdir build<br>
 cd build<br>
@@ -14,6 +14,3 @@ ctest<br>
 1.Run the IntentAnalyzer.exe from build directory.<br>
 2.Enter Input statement for which intent is to be analyzed and press enter.<br>
 An output intent should seen in the console.
-
-
-
